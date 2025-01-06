@@ -1,0 +1,56 @@
+body {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.custom-card {
+    margin: 0px 10px;
+    border: 2px solid rgb(74, 91, 92);
+    border-radius: 7px;
+    box-shadow: 5px 10px 0px 1px rgb(255, 255, 255);
+}
+
+.custom-header {
+    text-align: center;
+    padding: 35px 10px;
+}
+
+.btn-short {
+    background-color: #08c0bc;
+    padding: 10px 30px;
+    border: 2px solid black;
+    margin: 0px 10px;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 3px 7px 0px 1px rgb(20, 20, 20);
+}
+
+.btn-short:hover {
+    background-color: #8dbcd1;
+    color: #000000;
+    border: 2px solid black;
+    margin-top: 3px;
+    margin-bottom: -3px;
+    box-shadow: 2px 3px 0px 1px rgb(20, 20, 20);
+}
+
+.btn-copy {
+    background-color: #b4b70f;
+    border: 2px solid black;
+    color: black;
+    border-radius: 3px;
+    box-shadow: 3px 4px 0px 1px rgb(20, 20, 20);
+}
+
+.btn-copy:hover {
+    background-color: #d8d19f;
+    color: #000000;
+    border: 2px solid black;
+    box-shadow: 2px 3px 0px 1px rgb(20, 20, 20);
+}
+
+@media (max-width: 576px) {
+    .card {
+        margin: 20px;
+        padding: 10px;
+    }
+}
