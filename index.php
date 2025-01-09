@@ -92,8 +92,8 @@ if (isset($_GET['code'])) {
 </head>
 <body class="bg-dark">
     <div class="custom-header animate__heartBeat">
-        <div class="text-center text-light mt-2 display-3">
-            <span style="color: #08c0bc;">KURZ</span>
+        <div class="text-center text-light mt-2 display-5 font-weight-bold">
+            <span style="font-family: Fantasy; color: #08c0bc; text-shadow: 1px 1px 0 white;">K U R Z</span>
         </div>
         <h5 class="text-center">
             <p class="text-light" style="text-decoration: underline dotted;">
