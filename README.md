@@ -8,7 +8,7 @@ Shorten your long URL with optional custom shortlink support
 # Result :
 <img src="https://github.com/user-attachments/assets/b72ab540-775e-42e5-b8e4-9b53fa837485" width="50%" height="50%">
 
-Setup :
+# Setup :
 Create DB and run this SQL :
 
 ```
