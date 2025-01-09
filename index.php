@@ -1,10 +1,10 @@
 <?php
-// Database connection
+// Database
 $host = 'localhost';
 $dbname = 'db_short';
 $user = 'root';
 $password = '';
-
+// Connect
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -12,12 +12,12 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
-// Generate short code
+// Generate Short Code
 function generateShortCode($length = 6) {
     return substr(str_shuffle("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"), 0, $length);
 }
 
-// Handle URL shortening
+// Handle Shortlink
 $short_code = null;
 $error_message = null;
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['original_url'])) {
@@ -28,12 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['original_url'])) {
     if (!filter_var($original_url, FILTER_VALIDATE_URL)) {
         $error_message = "Invalid URL format.";
     } else {
-        // Check if custom code is provided and validate it
+        // Check & Validate Custom Code
         if ($custom_code) {
             if (!preg_match('/^[a-zA-Z0-9_-]+$/', $custom_code)) {
                 $error_message = "Custom code can only contain letters, numbers, dashes, and underscores.";
             } else {
-                // Check if custom code already exists
+                // Check Custom Code
                 $stmt = $pdo->prepare("SELECT id FROM short_links WHERE short_code = :short_code");
                 $stmt->execute(['short_code' => $custom_code]);
                 if ($stmt->rowCount() > 0) {
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['original_url'])) {
             }
         }
 
-        // If no custom code or no error, generate a unique short code
+        // Generate Short Code
         if (!$short_code && !$error_message) {
             do {
                 $short_code = generateShortCode();
@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['original_url'])) {
             } while ($stmt->rowCount() > 0);
         }
 
-        // Insert into database if no errors
+        // Insert Database
         if (!$error_message) {
             $stmt = $pdo->prepare("INSERT INTO short_links (short_code, original_url) VALUES (:short_code, :original_url)");
             $stmt->execute(['short_code' => $short_code, 'original_url' => $original_url]);
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['original_url'])) {
     }
 }
 
-// Handle redirection
+// Handle redirect
 if (isset($_GET['code'])) {
     $short_code = $_GET['code'];
 
