@@ -91,20 +91,28 @@ if (isset($_GET['code'])) {
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body class="bg-dark">
-    <h2 class="text-center mt-2 custom-header animate__heartBeat">
-        <p class="text-light" style="text-decoration: underline dotted;">Short<span style="color: #08c0bc;">Link Generator</span></p>
-    </h2>
+    <div class="custom-header animate__heartBeat">
+        <div class="text-center text-light mt-2 display-3">
+            <span style="color: #08c0bc;">KURZ</span>
+        </div>
+        <h5 class="text-center">
+            <p class="text-light" style="text-decoration: underline dotted;">
+                Shorten <span style="color: #08c0bc;">Your Link</span>
+            </p>
+        </h5>
+    </div>
+
     <div class="container mt-2">
         <div class="card custom-card p-4 shadow-lg mx-auto animate__animated animate__fadeInUp" style="max-width: 500px;">
             <div class="card-body">
                 <form method="POST">
                     <div class="mb-3">
                         <label for="original_url" class="form-label">Enter URL:</label>
-                        <input type="url" id="original_url" name="original_url" class="form-control" placeholder="Enter your loooooooong URL" required>
+                        <input type="url" id="original_url" name="original_url" class="form-control shadow" placeholder="Enter your loooooooong URL" required>
                     </div>
                     <div class="mb-3">
                         <label for="custom_code" class="form-label">Custom Short Code (optional):</label>
-                        <input type="text" id="custom_code" name="custom_code" class="form-control" placeholder="https://example.com/your-code">
+                        <input type="text" id="custom_code" name="custom_code" class="form-control shadow" placeholder="https://example.com/your-code">
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-short">Shorten <i class="bi bi-scissors"></i></button>
